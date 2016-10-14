@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="meanApp">
+	<head>
+		<title> MEAN App </title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="controller.js"></script>
+	</head>
+
+	<body ng-controller="meanAppCtrl as ctrl">
+		<div class="container">
+			<h1> Welcome to Test MEAN App</h1>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th> Name </th>
+						<th> Email </th>
+						<th> Number </th>
+						<th> Action </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> <input class="form-control" ng-model="contact.name"> </td>
+						<td> <input class="form-control" ng-model="contact.email"> </td>
+						<td> <input class="form-control" ng-model="contact.number"> </td>
+						<td>
+							<button class="btn btn-primary" ng-click="addContact()"> Add Contact </button>
+							<button class="btn btn-primary" ng-click="updateContact()"> Update Contact </button>
+						</td>
+					</tr>
+					<tr ng-repeat="contact in contactslist">
+						<td>{{contact.name}}</td>
+						<td>{{contact.email}}</td>
+						<td>{{contact.number}}</td>
+						<td> 
+							<button class="btn btn-danger" ng-click="deleteContact(contact._id)"> Delete </button>
+							<button class="btn btn-info" ng-click="editContact(contact)"> Edit </button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
